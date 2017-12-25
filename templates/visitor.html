@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .head{
+            width:100%;
+            high:400px;
+            align:center;
+            {#background-color: red;#}
+        }
+        .inHead{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <form class="inHead" action="/visitor" method="post">
+        <input name="bName" type="text" class="input-xlarge" id="name" />
+        <button type="submit">图书查询</button>
+    </form>
+</div>
+<div class="body"></div>
+<div class="footer">
+    <table class="table table-striped table-bordered table-condensed">
+				<thead>
+					<tr>
+						<th>ID</th>
+                        <th>图书名称</th>
+						<th>ISBN</th>
+						<th>作者</th>
+                        <th>馆存量</th>
+                        <th>价格</th>
+                        <th>状态</th>
+					</tr>
+				</thead>
+				<tbody>
+                {% for ibook_mohu in book_mohu %}
+				<tr class="list-roles">
+					<td>{{ ibook_mohu[0] }}</td>
+					<td>{{ ibook_mohu[1] }}</td>
+					<td>{{ ibook_mohu[2] }}</td>
+					<td>{{ ibook_mohu[3] }}</td>
+                    <td>{{ ibook_mohu[5] }}</td>
+                    <td>{{ ibook_mohu[7] }}</td>
+                    <td>{{ ibook_mohu[9] }}</td>
+{#					<td>#}
+{#						<div class="btn-group">#}
+{#							<a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#">操作 <span class="caret"></span></a>#}
+{#							<ul class="dropdown-menu pull-right">#}
+{##}
+{#                                <form action="/book" method="post">#}
+{#                                    <button name="bookId"  type="submit" value="{{ ibook[0] }}"> Edit#}
+{#                                    </button>#}
+{#                                    <li><button><i class="icon-pencil" type="submit"></i> Edit</button></li>#}
+{#                                    <button  type="submit  data-toggle="modal" data-target="#findModal"">Edit</button>#}
+{#                                  </form>#}
+{#                                <form action="/delete-book" method="post">#}
+{#                                    <button name="bookId"  type="submit" value="{{ ibook[0] }}"> Delete#}
+{#                                    </button>#}
+{#                                  </form>#}
+{#							</ul>#}
+{#						</div>#}
+{#					</td>#}
+				</tr>
+                {% endfor %}
+				</tbody>
+			</table>
+</div>
+</body>
+</html>
